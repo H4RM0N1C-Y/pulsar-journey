@@ -577,6 +577,19 @@ body:has(.popup.active) .resources-button:hover + .resources-popup:not(.active) 
   pointer-events: auto;
 }
 
+/* Separate Timeline Line - always visible */
+.pillars-timeline-line {
+  position: absolute;
+  left: calc(50% - 22.5rem - 3rem); /* Left of the card */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.125rem;
+  height: 20rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+}
+
 .pillar-content-card.active {
   opacity: 1;
   transform: scale(1);
