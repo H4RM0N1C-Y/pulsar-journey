@@ -1,0 +1,102 @@
+/* Page-Specific Typography & Content Styles */
+
+/* Hero Section Typography */
+#catchline {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-5xl);
+  margin-top: 0;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+#explanation {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  color: var(--color-text-quaternary);
+  font-size: var(--font-size-md);
+  max-width: 48rem;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+/* Vision Section Typography */
+.vision-text h2 {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: var(--font-size-4xl);
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.vision-text p {
+  font-size: var(--font-size-md);
+  line-height: 1.8;
+  color: var(--color-text-quaternary);
+}
+
+/* Contact Section Typography */
+.contact-text h2 {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: var(--font-size-4xl);
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.contact-text p {
+  font-size: var(--font-size-md);
+  line-height: 1.8;
+  color: var(--color-text-quaternary);
+}
+
+/* Footer Typography */
+.footer-left h3 {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.footer-left p,
+.footer-right p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-quinary);
+}
+
+/* AI Growth Section Typography */
+.ai-growth-header h2 {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: var(--font-size-4xl);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.ai-growth-header p {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-md);
+  color: var(--color-text-quaternary);
+  line-height: 1.75;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.tier-header h3 {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+  letter-spacing: -0.01em;
+}

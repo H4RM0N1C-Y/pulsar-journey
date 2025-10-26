@@ -1,0 +1,181 @@
+/* Utility Classes & Responsive Design */
+
+/* Responsive Breakpoints */
+
+/* Navbar collapses at 1200px */
+@media (max-width: 1200px) {
+  .navbar {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Hide login button on small screens */
+@media (max-width: 580px) {
+  .header-right .log-in {
+    display: none;
+  }
+}
+
+/* Hamburger appears at 900px */
+@media (max-width: 900px) {
+  .navbar {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 0.3rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+  }
+  .hamburger div {
+    width: 1.5rem;
+    height: 0.1875rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 0.125rem;
+    transition: all var(--transition-base);
+  }
+  
+  /* Hero scaling */
+  #catchline {
+    font-size: var(--font-size-2xl);
+  }
+  #explanation {
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+  }
+  #heropagecta {
+    font-size: 0.9rem;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Navbar active state */
+.navbar.active {
+  display: flex !important;
+  flex-direction: column;
+  position: absolute;
+  top: 4rem;
+  right: 2rem;
+  background-color: rgba(10, 10, 10, 0.95);
+  border: 0.0625em solid var(--color-border-secondary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  z-index: var(--z-dropdown);
+}
+
+/* Vision & Contact sections stack at 1000px */
+@media (max-width: 1000px) {
+  #vision .vision-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  #vision .vision-text {
+    order: 1;
+    margin-bottom: var(--spacing-xl);
+  }
+  #vision .vision-visual {
+    order: 2;
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  #contact .contact-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  #contact .contact-text {
+    order: 1;
+    margin-bottom: var(--spacing-xl);
+  }
+  #contact .contact-visual {
+    order: 2;
+    min-height: 100vh;
+    width: 100%;
+  }
+}
+
+/* Feature cards responsive at 1150px */
+@media (max-width: 1150px) {
+  .features-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 75rem;
+    margin: 0 auto;
+    gap: var(--spacing-md);
+    padding: 0 var(--spacing-xl);
+    box-sizing: border-box;
+  }
+  .small-card,
+  .long-card {
+    flex: none;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  .long-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .long-card .text-content {
+    margin-right: 0;
+    margin-bottom: var(--spacing-md);
+  }
+  .long-card .feature-image {
+    width: 100%;
+    height: auto;
+  }
+  .small-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .small-card .text-content {
+    margin-right: 0;
+    margin-bottom: var(--spacing-md);
+  }
+  .small-card .feature-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Responsive adjustments so it doesn't break on smaller screens */
+@media (max-width: 1200px) {
+  .ai-tiers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .ai-tiers {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Pillars Responsive */
+@media (max-width: 768px) {
+  .pillars-sticky-container {
+    top: 4rem;
+    height: calc(100vh - 4rem);
+  }
+  
+  .pillar-content-card {
+    padding: var(--spacing-xl);
+    max-width: calc(100% - 3rem);
+  }
+  
+  .pillar-content-card h3 {
+    font-size: var(--font-size-xl);
+  }
+}

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pulsar</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;1,400;1,500&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="body">
+  
+  <header id="header1">
+    <div class="header-left">
+      <h1 class="logo">Pulsar</h1>
+    </div>
+
+    <nav class="navbar">
+      <button class="community-button">
+        Community 
+        <span class="navbararrowtop">&#8639</span>
+        <span class="navbararrowbottom">&#8642</span>
+      </button>
+      <div class="popup community-popup">
+        <p>Q&A Hub</p>
+        <p>Announcements</p>
+        <p>Support & Collab</p>
+      </div>
+      
+      <a class="marketplace-link">Marketplace</a>
+      
+      <a class="pricing-link">Pricing</a>
+      
+      <button class="explore-button">
+        Explore 
+        <span class="navbararrowtop">&#8639</span>
+        <span class="navbararrowbottom">&#8642</span>
+      </button>
+      <div class="popup explore-popup">
+        <!-- Content for explore popup -->
+        <p>Explore content here</p>
+      </div>
+      
+      <button class="resources-button">
+        Resources 
+        <span class="navbararrowtop">&#8639</span>
+        <span class="navbararrowbottom">&#8642</span>
+      </button>
+      <div class="popup resources-popup">
+        <!-- Content for resources popup -->
+        <p>Resources content here</p>
+      </div>
+    </nav>
+
+    <div class="header-right">
+      <button class="log-in">Log in</button>
+      <button class="tpf">Try Pulsar free</button>
+
+      <button class="hamburger" aria-label="Toggle Menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </button>
+    </div>
+
+    <div class="mobile-menu">
+      <button class="community-button">Community <span class="navbararrowtoptog">&#8639</span><span class="navbararrowbottomtog">&#8642</span></button>
+      <a class="marketplace-link">Marketplace</a>
+      <a class="pricing-link">Pricing</a>
+      <button class="explore-button">Explore <span class="navbararrowtoptog">&#8639</span><span class="navbararrowbottomtog">&#8642</span></button>
+      <button class="resources-button">Resources <span class="navbararrowtoptog">&#8639</span><span class="navbararrowbottomtog">&#8642</span></button>
+      <button class="log-in">Log in</button>
+      <button class="tpf">Try Pulsar free</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero">
+      <div id="herotext">
+        <h1 id="catchline">Your workspace to turn ideas into action</h1>
+        <p id="explanation">
+          Kill dead knowledge — the gap between ideas and action — and turn what you know into real results. 
+          Organize your thoughts, channel your creativity, and bridge the space between understanding and execution.
+        </p>
+        <button id="heropagecta">Sign up</button>
+      </div>
+      <div id="heroimage"></div>
+    </section>
+
+    <!-- Pillars Section -->
+    <section id="pillars">
+      <div class="pillar-spacer" data-pillar="0"></div>
+      <div class="pillar-spacer" data-pillar="1"></div>
+      <div class="pillar-spacer" data-pillar="2"></div>
+      <div class="pillar-spacer" data-pillar="3"></div>
+      <div class="pillar-spacer" data-pillar="4"></div>
+      <div class="pillar-spacer" data-pillar="5"></div>
+      <div class="pillar-spacer" data-pillar="6"></div>
+      <div class="pillar-spacer extra-scroll"></div>
+      
+      <!-- Sticky container with all content -->
+      <div class="pillars-sticky-container">
+        <div class="pillar-content-card active" data-index="0">
+          <h3>Foundation</h3>
+          <p>The first pillar represents the foundation of everything we build. It's the cornerstone of our philosophy and the base upon which all innovation rests.</p>
+        </div>
+        
+        <div class="pillar-content-card" data-index="1">
+          <h3>Innovation</h3>
+          <p>The second pillar builds upon the first, adding layers of depth and meaning to our mission through continuous innovation and creative thinking.</p>
+        </div>
+        
+        <div class="pillar-content-card" data-index="2">
+          <h3>Collaboration</h3>
+          <p>With the third pillar, we establish a rhythm and pattern that guides all our decisions through the power of working together.</p>
+        </div>
+        
+        <div class="pillar-content-card" data-index="3">
+          <h3>Excellence</h3>
+          <p>The fourth pillar represents balance and harmony in everything we create and deliver, striving for excellence in every detail.</p>
+        </div>
+        
+        <div class="pillar-content-card" data-index="4">
+          <h3>Growth</h3>
+          <p>The fifth pillar brings innovation and forward-thinking approaches to our core values, fostering continuous growth and evolution.</p>
+        </div>
+
+        <div class="pillar-content-card" data-index="5">
+          <h3>Impact</h3>
+          <p>With the sixth pillar, we reach toward excellence and perfection in all our endeavors, creating meaningful impact in the world.</p>
+        </div>
+        
+        <div class="pillar-content-card" data-index="6">
+          <h3>Future</h3>
+          <p>The seventh and final pillar completes the structure, representing mastery and fulfillment as we build toward the future.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+      <div class="features-container">
+        <div class="feature-card small-card">
+          <h3>Smart Focus</h3>
+          <p>Automatically highlights your most important tasks or next best move.</p>
+          <div class="feature-image"></div>
+        </div>
+
+        <div class="feature-card long-card">
+          <div class="text-content">
+            <h3>Idea Fusion</h3>
+            <p>Connect scattered thoughts into structured action plans. Pulsar links your ideas like constellations to form a clear path forward.</p>
+          </div>
+          <div class="feature-image"></div>
+        </div>
+
+        <div class="feature-card long-card">
+          <div class="text-content">
+            <h3>Custom Dashboard</h3>
+            <p>Build your workspace your way. Pulsar's dashboard is a fully customizable canvas where you can arrange widgets, charts, and tools exactly how you want them.</p>
+          </div>
+          <div class="feature-image"></div>
+        </div>
+
+        <div class="feature-card small-card">
+          <h3>AI-Powered Insights</h3>
+          <p>Pulsar learns your habits and suggests faster, smarter workflows for improved productivity.</p>
+          <div class="feature-image"></div>
+        </div>
+
+        <div class="feature-card small-card">
+          <h3>Adaptive System</h3>
+          <p>Enjoy smooth transitions and a workspace that adapts to how you work.</p>
+          <div class="feature-image"></div>
+        </div>
+
+        <div class="feature-card long-card">
+          <div class="text-content">
+            <h3>Idea Organizer</h3>
+            <p>Turn scattered thoughts into structured plans that you can act on immediately.</p>
+          </div>
+          <div class="feature-image"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="AIgrowthwu">
+      <div class="ai-growth-container">
+        <div class="ai-growth-header">
+          <h2>AI That Grows With You</h2>
+          <p>Invisible at first, indispensable over time. Your AI evolves through progressive tiers.</p>
+        </div>
+
+        <div class="ai-tiers">
+
+          <!-- Tier 1 -->
+          <div class="tier-card" data-tier="1">
+            <div class="tier-header">
+              <div class="tier-header-icon">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="tier1Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#0062FF"/>
+                      <stop offset="100%" stop-color="#9000FF"/>
+                    </linearGradient>
+                  </defs>
+                  <circle cx="50" cy="50" r="45" stroke="url(#tier1Gradient)" stroke-width="5" fill="none"/>
+                  <text x="50" y="55" text-anchor="middle" dominant-baseline="middle" font-size="40" fill="url(#tier1Gradient)" font-weight="700">1</text>
+                </svg>
+                <h4>Atom</h4>
+              </div>
+              <p class="tier-subtitle">Background Organizer</p>
+            </div>
+            <p class="tier-description">AI quietly manages notes and highlights key points so you can work frictionlessly.</p>
+            <ul class="tier-features">
+              <li>Organizes workspace and notes automatically</li>
+              <li>Highlights important points without interrupting workflow</li>
+              <li>Provides subtle support in the background</li>
+            </ul>
+          </div>
+
+          <!-- Tier 2 -->
+          <div class="tier-card" data-tier="2">
+            <div class="tier-header">
+              <div class="tier-header-icon">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="tier2Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#0062FF"/>
+                      <stop offset="100%" stop-color="#9000FF"/>
+                    </linearGradient>
+                  </defs>
+                  <circle cx="50" cy="50" r="45" stroke="url(#tier2Gradient)" stroke-width="5" fill="none"/>
+                  <text x="50" y="55" text-anchor="middle" dominant-baseline="middle" font-size="40" fill="url(#tier2Gradient)" font-weight="700">2</text>
+                </svg>
+                <h4>Molecule  </h4>
+              </div>
+              <p class="tier-subtitle">Guided Helper</p>
+            </div>
+            <p class="tier-description">AI starts suggesting actions and summarizing notes for a smoother workflow.</p>
+            <ul class="tier-features">
+              <li>Summarizes notes and highlights key actions</li>
+              <li>Offers reminders and prioritization cues</li>
+              <li>Supports multiple projects or note types</li>
+            </ul>
+          </div>
+
+          <!-- Tier 3 -->
+          <div class="tier-card" data-tier="3">
+            <div class="tier-header">
+              <div class="tier-header-icon">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="tier3Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#0062FF"/>
+                      <stop offset="100%" stop-color="#9000FF"/>
+                    </linearGradient>
+                  </defs>
+                  <circle cx="50" cy="50" r="45" stroke="url(#tier3Gradient)" stroke-width="5" fill="none"/>
+                  <text x="50" y="55" text-anchor="middle" dominant-baseline="middle" font-size="40" fill="url(#tier3Gradient)" font-weight="700">3</text>
+                </svg>
+                <h4>Neuron</h4>
+              </div>
+              <p class="tier-subtitle">Insightful Collaborator</p>
+            </div>
+            <p class="tier-description">AI connects ideas, offers insights, and helps manage more complex tasks.</p>
+            <ul class="tier-features">
+              <li>Provides deep insights and actionable recommendations</li>
+              <li>Connects related ideas for better understanding</li>
+              <li>Supports team collaboration and advanced workflows</li>
+            </ul>
+          </div>
+
+          <!-- Tier 4 -->
+          <div class="tier-card" data-tier="4">
+            <div class="tier-header">
+              <div class="tier-header-icon">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="tier4Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#0062FF"/>
+                      <stop offset="100%" stop-color="#9000FF"/>
+                    </linearGradient>
+                  </defs>
+                  <circle cx="50" cy="50" r="45" stroke="url(#tier4Gradient)" stroke-width="5" fill="none"/>
+                  <text x="50" y="55" text-anchor="middle" dominant-baseline="middle" font-size="40" fill="url(#tier4Gradient)" font-weight="700">4</text>
+                </svg>
+                <h4>Quantum</h4>
+              </div>
+              <p class="tier-subtitle">Personal AI Assistant</p>
+            </div>
+            <p class="tier-description">Full AI assistant for tasks, learning, insights, and automation.</p>
+            <ul class="tier-features">
+              <li>Acts as a personal AI assistant across tasks and projects</li>
+              <li>Predicts outcomes and automates workflows</li>
+              <li>Integrates seamlessly with other tools</li>
+              <li>Adapts to your habits and preferences</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- About / Rotating Tickers -->
+    <section id="about">
+      <div class="ticker-container">
+        <div id="aboutstatic">
+          <span class="prefix">Pulsar, for</span>
+        </div>
+        
+      <div class="ticker-wrapper">
+        <div class="layer layer1" id="ticker">
+          <!-- First set of items -->
+          <div class="scroller-item" data-word="Students">Students</div>
+          <div class="scroller-item" data-word="Makers">Makers</div>
+          <div class="scroller-item" data-word="Thinkers">Thinkers</div>
+          <div class="scroller-item" data-word="Teams">Teams</div>
+          <div class="scroller-item" data-word="Students">Students</div>
+          <div class="scroller-item" data-word="Makers">Makers</div>
+          <div class="scroller-item" data-word="Thinkers">Thinkers</div>
+          <div class="scroller-item" data-word="Teams">Teams</div>
+        
+          <!-- Duplicate set for seamless loop -->
+          <div class="scroller-item" data-word="Students">Students</div>
+          <div class="scroller-item" data-word="Makers">Makers</div>
+          <div class="scroller-item" data-word="Thinkers">Thinkers</div>
+          <div class="scroller-item" data-word="Teams">Teams</div>
+          <div class="scroller-item" data-word="Students">Students</div>
+          <div class="scroller-item" data-word="Makers">Makers</div>
+          <div class="scroller-item" data-word="Thinkers">Thinkers</div>
+          <div class="scroller-item" data-word="Teams">Teams</div>
+        </div>
+      </div>
+
+      <div class="ticker-wrapper">
+        <div class="layer layer2" id="ticker">
+          <!-- First set of items -->
+          <div class="scroller-item" data-word="to">to</div>
+          <div class="scroller-item" data-word="who">who</div>
+          <div class="scroller-item" data-word="that">that</div>
+          <div class="scroller-item" data-word="to">to</div>
+          <div class="scroller-item" data-word="who">who</div>
+          <div class="scroller-item" data-word="that">that</div>
+          <div class="scroller-item" data-word="to">to</div>
+          <div class="scroller-item" data-word="who">who</div>
+          <div class="scroller-item" data-word="that">that</div>
+          <div class="scroller-item" data-word="to">to</div>
+          <div class="scroller-item" data-word="who">who</div>
+          <div class="scroller-item" data-word="that">that</div>
+          <div class="scroller-item" data-word="to">to</div>
+          <div class="scroller-item" data-word="who">who</div>
+          <div class="scroller-item" data-word="to">to</div>
+          <div class="scroller-item" data-word="who">who</div>
+          <div class="scroller-item" data-word="that">that</div>
+        
+          <!-- Duplicate set for seamless loop -->
+          <div class="scroller-item" data-word="to">to</div>
+          <div class="scroller-item" data-word="who">who</div>
+          <div class="scroller-item" data-word="that">that</div>
+          <div class="scroller-item" data-word="to">to</div>
+          <div class="scroller-item" data-word="who">who</div>
+          <div class="scroller-item" data-word="that">that</div>
+          <div class="scroller-item" data-word="to">to</div>
+          <div class="scroller-item" data-word="who">who</div>
+          <div class="scroller-item" data-word="that">that</div>
+          <div class="scroller-item" data-word="to">to</div>
+          <div class="scroller-item" data-word="who">who</div>
+          <div class="scroller-item" data-word="that">that</div>
+          <div class="scroller-item" data-word="to">to</div>
+          <div class="scroller-item" data-word="who">who</div>
+          <div class="scroller-item" data-word="to">to</div>
+          <div class="scroller-item" data-word="who">who</div>
+          <div class="scroller-item" data-word="that">that</div>
+        </div>
+      </div>
+
+      <div class="ticker-wrapper">
+        <div class="layer layer3" id="ticker">
+          <!-- First set of items -->
+          <div class="scroller-item" data-word="organize">organize</div>
+          <div class="scroller-item" data-word="track">track</div>
+          <div class="scroller-item" data-word="share">share</div>
+          <div class="scroller-item" data-word="plan">plan</div>
+          <div class="scroller-item" data-word="connect">connect</div>
+          <div class="scroller-item" data-word="create">create</div>
+          <div class="scroller-item" data-word="need">need</div>
+          <div class="scroller-item" data-word="learn">learn</div>
+          <div class="scroller-item" data-word="organize">organize</div>
+          <div class="scroller-item" data-word="track">track</div>
+          <div class="scroller-item" data-word="share">share</div>
+          <div class="scroller-item" data-word="plan">plan</div>
+          <div class="scroller-item" data-word="connect">connect</div>
+          <div class="scroller-item" data-word="create">create</div>
+          <div class="scroller-item" data-word="need">need</div>
+          <div class="scroller-item" data-word="learn">learn</div>
+        
+          <!-- Duplicate set for seamless loop -->
+          <div class="scroller-item" data-word="organize">organize</div>
+          <div class="scroller-item" data-word="track">track</div>
+          <div class="scroller-item" data-word="share">share</div>
+          <div class="scroller-item" data-word="plan">plan</div>
+          <div class="scroller-item" data-word="connect">connect</div>
+          <div class="scroller-item" data-word="create">create</div>
+          <div class="scroller-item" data-word="need">need</div>
+          <div class="scroller-item" data-word="learn">learn</div>
+          <div class="scroller-item" data-word="organize">organize</div>
+          <div class="scroller-item" data-word="track">track</div>
+          <div class="scroller-item" data-word="share">share</div>
+          <div class="scroller-item" data-word="plan">plan</div>
+          <div class="scroller-item" data-word="connect">connect</div>
+          <div class="scroller-item" data-word="create">create</div>
+          <div class="scroller-item" data-word="need">need</div>
+          <div class="scroller-item" data-word="learn">learn</div>
+        </div>
+      </div>
+
+      <div class="ticker-wrapper">
+        <div class="layer layer4" id="ticker">
+          <!-- First set of items -->
+          <div class="scroller-item" data-word="project">projects</div>
+          <div class="scroller-item" data-word="ideas">ideas</div>
+          <div class="scroller-item" data-word="solutions">solutions</div>
+          <div class="scroller-item" data-word="tasks">tasks</div>
+          <div class="scroller-item" data-word="plans">plans</div>
+          <div class="scroller-item" data-word="goals">goals</div>
+          <div class="scroller-item" data-word="notes">notes</div>
+          <div class="scroller-item" data-word="creations">creations</div>
+          <div class="scroller-item" data-word="project">projects</div>
+          <div class="scroller-item" data-word="ideas">ideas</div>
+          <div class="scroller-item" data-word="solutions">solutions</div>
+          <div class="scroller-item" data-word="tasks">tasks</div>
+          <div class="scroller-item" data-word="plans">plans</div>
+          <div class="scroller-item" data-word="goals">goals</div>
+          <div class="scroller-item" data-word="notes">notes</div>
+          <div class="scroller-item" data-word="creations">creations</div>
+        
+          <!-- Duplicate set for seamless loop -->
+          <div class="scroller-item" data-word="project">projects</div>
+          <div class="scroller-item" data-word="ideas">ideas</div>
+          <div class="scroller-item" data-word="solutions">solutions</div>
+          <div class="scroller-item" data-word="tasks">tasks</div>
+          <div class="scroller-item" data-word="plans">plans</div>
+          <div class="scroller-item" data-word="goals">goals</div>
+          <div class="scroller-item" data-word="notes">notes</div>
+          <div class="scroller-item" data-word="creations">creations</div>
+          <div class="scroller-item" data-word="project">projects</div>
+          <div class="scroller-item" data-word="ideas">ideas</div>
+          <div class="scroller-item" data-word="solutions">solutions</div>
+          <div class="scroller-item" data-word="tasks">tasks</div>
+          <div class="scroller-item" data-word="plans">plans</div>
+          <div class="scroller-item" data-word="goals">goals</div>
+          <div class="scroller-item" data-word="notes">notes</div>
+          <div class="scroller-item" data-word="creations">creations</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision">
+      <div class="vision-content">
+        <div class="vision-visual"></div>
+        <div class="vision-text">
+          <h2>Our Vision</h2>
+          <p>
+            At Pulsar, we're building a future where ideas flow seamlessly and productivity is effortless. 
+            Our mission is to empower builders, dreamers, and doers to create without limits.
+          </p>
+        </div>
+      </div>
+    </section>
+
+     <!-- Contact Section -->
+    <section id="contact">
+      <div class="contact-content">
+        <div class="contact-text">
+          <h2>Ride the Wave.</h2>
+          <p>
+            A movement of builders, dreamers, and doers is rising. Whether you're curious, collaborating, or creating something new — let's connect and make it real.
+          </p>
+          <button id="contactjoin">Join the waitlist</button>
+          <button id="qanda">Open Q&A</button>
+        </div>
+        <div class="contact-visual"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="footer-content">
+        <div class="footer-left">
+          <h3>Pulsar</h3>
+          <p>Building the future of productivity. Join the wave.</p>
+        </div>
+        <div class="footer-right">
+          <p>© 2025 Pulsar. All rights reserved.</p>
+          <p><a href="mailto:hello@pulsar.ai">hello@pulsar.ai</a></p>
+        </div>
+      </div>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+/* Layout Styles */
+
+/* Header Layout */
+#header1 {
+  background-color: rgba(10, 10, 10, 1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  border-bottom: 0.0625em solid var(--color-border-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  z-index: var(--z-header);
+}
+
+.header-left,
+.header-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.header-left {
+  justify-content: flex-start;
+}
+
+.header-right {
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+  position: relative;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  flex: 0;
+}
+
+/* Hero Section Layout */
+#hero {
+  width: 100%;
+  min-width: 100%;
+  max-height: 100rem;
+  padding-top: 8rem;
+  padding-bottom: var(--spacing-2xl);
+  background: linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#herotext {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 55rem;
+  color: white;
+  padding: 0 var(--spacing-xl);
+}
+
+#heroimage {
+  display: block;
+  height: 40rem;
+  max-width: 80rem;
+  width: calc(100% - 6rem);
+  border: 0.0625em solid var(--color-border-secondary);
+  border-radius: var(--radius-lg);
+  margin: var(--spacing-xl) auto 0 auto;
+  box-shadow: var(--shadow-2xl);
+}
+
+/* Features Section Layout */
+#features {
+  text-align: center;
+  min-height: 64rem;
+  background-color: var(--color-bg-primary);
+  padding: var(--spacing-4xl) var(--spacing-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Pillars Section Layout */
+#AIgrowthwu {
+  text-align: center;
+  min-height: 64rem;
+  background-color: var(--color-bg-tertiary);
+  padding: var(--spacing-4xl) var(--spacing-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.features-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-md);
+  max-width: 75rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* About Section / Ticker Layout */
+#about {
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  min-height: 40rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg-primary) 100%);
+  padding: var(--spacing-5xl) 0;
+}
+
+.ticker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xl);
+  width: 100%;
+  max-width: 80rem;
+}
+
+#fourlayers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 1rem 0;
+  white-space: nowrap;
+}
+
+/* Vision Section Layout */
+#vision {
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  width: 100%;
+  min-height: 40rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-5xl) var(--spacing-xl);
+  box-sizing: border-box;
+  background-color: var(--color-bg-tertiary);
+}
+
+.vision-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 80rem;
+  gap: var(--spacing-3xl);
+}
+
+.vision-text {
+  flex: 1;
+}
+
+.vision-visual {
+  flex: 1;
+  height: 28rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+  border: 0.0625em solid var(--color-border-secondary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Contact Section Layout */
+#contact {
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  width: 100%;
+  min-height: 40rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-5xl) var(--spacing-xl);
+  box-sizing: border-box;
+  background: linear-gradient(180deg, var(--color-bg-quaternary) 0%, var(--color-bg-quinary) 100%);
+}
+
+.contact-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 80rem;
+  gap: var(--spacing-3xl);
+}
+
+.contact-text {
+  flex: 1;
+}
+
+.contact-visual {
+  flex: 1;
+  height: 28rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+  border: 0.0625em solid var(--color-border-secondary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Footer Layout */
+#footer {
+  width: 100%;
+  background-color: var(--color-bg-primary);
+  border-top: 0.0625em solid var(--color-border-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  padding: var(--spacing-3xl) var(--spacing-xl);
+  box-sizing: border-box;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+/* Mobile Menu Layout */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 4rem);
+  background: rgba(10, 10, 10, 0.96);
+  backdrop-filter: blur(1em);
+  padding-top: var(--spacing-xl);
+  z-index: var(--z-mobile-menu);
+  text-align: center;
+}
+
+.mobile-menu.active {
+  display: flex !important;
+}
+
+/* AI Growth Section Layout */
+#AIgrowthwu {
+  width: 100%;
+  min-height: 50rem;
+  background: linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+  padding: var(--spacing-5xl) var(--spacing-xl);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ai-growth-container {
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.ai-growth-header {
+  text-align: center;
+  margin-bottom: var(--spacing-4xl);
+}
+
+.ai-tiers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-xl);
+  width: 100%;
+}
+
+/* Pillars Section Layout */
+#pillars {
+  position: relative;
+  background: var(--color-bg-primary);
+  min-height: 800vh; /* 7 pillars * 100vh + extra 100vh for last pillar */
+  z-index: 1;
+}
+
+/* Spacers to create scroll distance */
+.pillar-spacer {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Sticky container */
+.pillars-sticky-container {
+  position: sticky;
+  top: 4rem; /* Account for fixed header */
+  height: calc(100vh - 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+  margin-top: -800vh; /* Pull it back up to overlap spacers */
+}
