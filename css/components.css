@@ -590,12 +590,26 @@ body:has(.popup.active) .resources-button:hover + .resources-popup:not(.active) 
   pointer-events: none;
 }
 
+/* Moving indicator on timeline */
+.pillars-timeline-indicator {
+  position: absolute;
+  left: calc(50% - 22.5rem - 3rem - 0.1875rem);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.5rem;
+  height: 2rem;
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+  transition: all 0.6s ease;
+}
+
 .pillar-content-card.active {
   opacity: 1;
   transform: scale(1);
 }
 
-.pillar-content-card h3 {
+.pillar-content-card h2 {
   font-family: var(--font-secondary);
   font-weight: 700;
   margin-bottom: var(--spacing-md);

@@ -281,6 +281,16 @@
   width: 100%;
 }
 
+.pillar-header-section {
+  text-align: center;
+  min-height: 1rem;
+  background-color: var(--color-bg-primary);
+  padding-top: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Pillars Section Layout */
 #pillars {
   position: relative;

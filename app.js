@@ -251,6 +251,7 @@ document.addEventListener('click', () => {
 const pillarsSection = document.querySelector('#pillars');
 const pillarCards = document.querySelectorAll('.pillar-content-card');
 const pillarSpacer = document.querySelector('.pillar-spacer');
+const timelineIndicator = document.querySelector('.pillars-timeline-indicator');
 let currentActivePillar = 0;
 
 function updatePillars() {
@@ -275,6 +276,27 @@ function updatePillars() {
         card.classList.remove('active');
       }
     });
+    
+    // Move indicator based on pillar index
+    if (timelineIndicator) {
+      const lineHeight = 20; // rem
+      const totalPillars = pillarCards.length;
+      const segmentHeight = lineHeight / (totalPillars - 1);
+      const offset = (pillarIndex * segmentHeight) - (lineHeight / 2);
+      timelineIndicator.style.top = `calc(50% + ${offset}rem)`;
+      
+      // Update indicator color based on pillar
+      const colors = [
+        'rgba(102, 126, 234, 1)',
+        'rgba(240, 147, 251, 1)',
+        'rgba(79, 172, 254, 1)',
+        'rgba(67, 233, 123, 1)',
+        'rgba(250, 112, 154, 1)',
+        'rgba(255, 154, 86, 1)',
+        'rgba(161, 140, 209, 1)'
+      ];
+      timelineIndicator.style.background = colors[pillarIndex];
+    }
   }
 }
 
