@@ -9,110 +9,162 @@ if (hamburger && mobileMenu) {
   });
 }
 
-const ticker = document.getElementById('ticker');
-const items = ticker.querySelectorAll('.scroller-item');
+// Get all ticker layers
+const layer1 = document.querySelector('.layer1');
+const layer2 = document.querySelector('.layer2');
+const layer3 = document.querySelector('.layer3');
+const layer4 = document.querySelector('.layer4');
 
-// Your predetermined sequence
-const presets = ['Students', 'Teams', 'Makers', 'Thinkers'];
+// Preset combinations: [layer1, layer2, layer3, layer4]
+const presets = [
+  ['Students', 'who', 'organize', 'projects'],
+  ['Students', 'who', 'share', 'ideas'],
+  ['Students', 'to', 'plan', 'goals'],
+  ['Teams', 'who', 'track', 'tasks'],
+  ['Teams', 'to', 'connect', 'ideas'],
+  ['Teams', 'who', 'create', 'solutions'],
+  ['Makers', 'who', 'organize', 'ideas'],
+  ['Makers', 'to', 'share', 'creations'],
+  ['Makers', 'who', 'learn', 'projects'],
+  ['Thinkers', 'who', 'plan', 'goals'],
+  ['Thinkers', 'who', 'create', 'solutions'],
+  ['Thinkers', 'to', 'organize', 'notes']
+];
+
 let currentPresetIndex = 0;
-let isAnimating = false;
-let animationInterval;
+let scrollPositions = [0, 0, 0, 0];
+let layersFrozen = [false, false, false, false];
+let centerItems = [null, null, null, null];
+let allFrozen = false;
+let animationFrameId = null;
 
-// Calculate item width + gap
-function getItemWidth() {
-    return items[0].offsetWidth + parseFloat(getComputedStyle(ticker).gap);
-}
+const layers = [layer1, layer2, layer3, layer4];
+const scrollSpeeds = [50, 50, 50, 50]; // Slowed down speeds, especially layer 4
 
-function scrollToWord(word) {
-  // Find the first occurrence of the word that's visible
-  let targetItem = null;
-  let targetIndex = -1;
+// Function to find target word items in center region
+function findTargetInCenter(layer, targetWord) {
+  const items = layer.querySelectorAll('.scroller-item');
+  const container = layer.parentElement;
+  const containerRect = container.getBoundingClientRect();
+  const centerX = containerRect.left + containerRect.width / 2;
   
-  items.forEach((item, index) => {
-    if (item.dataset.word === word && index < items.length / 2) {
-      if (targetItem === null) {
-        targetItem = item;
-        targetIndex = index;
+  // Look for any item with target word in center region (wider threshold)
+  for (let item of items) {
+    if (item.dataset.word === targetWord) {
+      const rect = item.getBoundingClientRect();
+      const itemCenterX = rect.left + rect.width / 2;
+      const distance = Math.abs(itemCenterX - centerX);
+      
+      // Much wider threshold - 100px
+      if (distance < 100) {
+        console.log(`Found ${targetWord} at distance ${distance}px`);
+        return { found: true, item: item, distance: distance };
       }
     }
-  });
-
-  if (targetItem) {
-    const itemWidth = getItemWidth();
-    const containerWidth = ticker.parentElement.offsetWidth;
-    const targetPosition = -(targetIndex * itemWidth - containerWidth / 2 + targetItem.offsetWidth / 2);
-    
-    ticker.style.transform = `translateX(${targetPosition}px)`;
-    
-    // Highlight the word
-    items.forEach(item => item.classList.remove('highlighted'));
-    items.forEach(item => {
-      if (item.dataset.word === word) {
-        item.classList.add('highlighted');
-      }
-    });
   }
+  
+  return { found: false, item: null, distance: Infinity };
 }
 
-function smoothScroll() {
-  const itemWidth = getItemWidth();
-  let currentPosition = 0;
-  const totalWidth = itemWidth * (items.length / 2); // Half since we duplicated
-  const scrollSpeed = 2; // pixels per frame
+// Main animation loop
+function animate() {
+  if (allFrozen) return;
   
-  function animate() {
-    if (!isAnimating) return;
+  const preset = presets[currentPresetIndex];
+  
+  layers.forEach((layer, index) => {
+    // Skip if this layer is already frozen
+    if (layersFrozen[index]) return;
     
-    currentPosition -= scrollSpeed;
+    const items = layer.querySelectorAll('.scroller-item');
+    const itemWidth = items[0].offsetWidth + parseFloat(getComputedStyle(layer).gap);
+    const totalWidth = itemWidth * (items.length / 2);
+    
+    // Continue scrolling this layer
+    scrollPositions[index] -= scrollSpeeds[index];
     
     // Reset position for infinite loop
-    if (Math.abs(currentPosition) >= totalWidth) {
-      currentPosition = 0;
+    if (Math.abs(scrollPositions[index]) >= totalWidth) {
+      scrollPositions[index] = 0;
     }
     
-    ticker.style.transition = 'none';
-    ticker.style.transform = `translateX(${currentPosition}px)`;
+    layer.style.transition = 'none';
+    layer.style.transform = `translateX(${scrollPositions[index]}px)`;
     
-    requestAnimationFrame(animate);
+    // Check if target word is in center AND if we're allowed to freeze
+    const canFreeze = !window.canFreezeAfter || Date.now() >= window.canFreezeAfter;
+    const centerCheck = findTargetInCenter(layer, preset[index]);
+    if (centerCheck.found && canFreeze) {
+      // Freeze this layer at its current position
+      layersFrozen[index] = true;
+      centerItems[index] = centerCheck.item;
+      console.log(`✓ Layer ${index + 1} FROZEN with word: "${preset[index]}" (distance: ${centerCheck.distance.toFixed(1)}px)`);
+    }
+  });
+  
+  // Check if all layers are frozen
+  if (layersFrozen.every(frozen => frozen === true)) {
+    allFrozen = true;
+    console.log('🎯 ALL LAYERS FROZEN! Highlighting...');
+    highlightAndPause();
+    return;
   }
   
-  animate();
+  animationFrameId = requestAnimationFrame(animate);
 }
 
+// Highlight all words and pause for 3 seconds
+function highlightAndPause() {
+  // Highlight all center items
+  centerItems.forEach((item, index) => {
+    if (item) {
+      item.classList.add('highlighted');
+      console.log(`Highlighted layer ${index + 1}: ${item.dataset.word}`);
+    }
+  });
+  
+  // Wait 3 seconds then smoothly unhighlight and unfreeze
+  setTimeout(() => {
+    console.log('⏭️ Starting smooth transition...');
+    
+    // Gradually fade out highlights over 0.3 seconds
+    centerItems.forEach((item) => {
+      if (item) {
+        item.style.transition = 'all 0.3s ease';
+        item.classList.remove('highlighted');
+      }
+    });
+    
+    // Move to next preset
+    currentPresetIndex = (currentPresetIndex + 1) % presets.length;
+    console.log(`📋 Next preset will be: ${presets[currentPresetIndex].join(' ')}`);
+    
+    // Gradually unfreeze layers one by one with slight delays for smooth effect
+    setTimeout(() => { layersFrozen[0] = false; }, 0);
+    setTimeout(() => { layersFrozen[1] = false; }, 250);
+    setTimeout(() => { layersFrozen[2] = false; }, 500);
+    setTimeout(() => { layersFrozen[3] = false; }, 750);
+    
+    // Reset state
+    centerItems = [null, null, null, null];
+    allFrozen = false;
+    
+    // Wait 3 seconds before allowing next preset to lock (starting from first layer unfreeze)
+    const waitUntil = Date.now() + 2000;
+    window.canFreezeAfter = waitUntil;
+    
+    // Resume animation after last layer unfreezes
+    setTimeout(() => {
+      animate();
+    }, 250);
+    
+  }, 2000);
+}
+
+// Start the animation
 function startAnimation() {
-  if (animationInterval) return;
-  
-  isAnimating = true;
-  smoothScroll();
-  
-  // Every 4 seconds: scroll for 2 seconds, pause for 2 seconds
-  animationInterval = setInterval(() => {
-    // Stop scrolling
-    isAnimating = false;
-    
-    // Scroll to preset word
-    const targetWord = presets[currentPresetIndex];
-    setTimeout(() => {
-      scrollToWord(targetWord);
-    }, 100);
-    
-    // Wait 2 seconds, then continue
-    setTimeout(() => {
-      items.forEach(item => item.classList.remove('highlighted'));
-      currentPresetIndex = (currentPresetIndex + 1) % presets.length;
-      isAnimating = true;
-      smoothScroll();
-    }, 2000);
-      
-  }, 4000);
-}
-
-function stopAnimation() {
-  isAnimating = false;
-  if (animationInterval) {
-    clearInterval(animationInterval);
-    animationInterval = null;
-  }
+  console.log(`🚀 Starting with preset 1: ${presets[0].join(' ')}`);
+  animate();
 }
 
 // Auto-start

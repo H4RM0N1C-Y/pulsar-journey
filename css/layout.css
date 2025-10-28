@@ -126,7 +126,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-xl);
+  gap: 0rem;
   width: 100%;
   max-width: 80rem;
 }
@@ -139,7 +139,7 @@
   width: 100%;
   overflow: hidden;
   position: relative;
-  padding: 1rem 0;
+  padding: 2rem 2rem;
   white-space: nowrap;
 }
 

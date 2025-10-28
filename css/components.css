@@ -362,6 +362,8 @@ body:has(.popup.active) .resources-button:hover + .resources-popup:not(.active) 
   width: 100%;
   overflow: hidden;
   position: relative;
+  border-top: 0.0625em solid var(--color-border-primary);
+  border-bottom: 0.0625em solid var(--color-border-primary);
 }
 
 .layer {
@@ -369,59 +371,43 @@ body:has(.popup.active) .resources-button:hover + .resources-popup:not(.active) 
   font-weight: 500;
   font-size: var(--font-size-3xl);
   color: var(--color-text-tertiary);
-  border-top: 0.0625em solid var(--color-border-primary);
   text-align: center;
   align-items: center;
-  padding: var(--spacing-md) 0;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
   line-height: 1.2;
   display: inline-flex;
   gap: 2rem;
   white-space: nowrap;
-  transition: transform 0.5s ease-out;
-}
-
-.layer1 {
-  animation: scroll 0.75s linear infinite;
-}
-
-/* Paused state */
-.layer1.paused {
-  animation-play-state: paused;
-}
-
-
-.layer2 {
-  animation: scroll 0.5s linear infinite;
-}
-
-/* Paused state */
-.layer2.paused {
-  animation-play-state: paused;
-}
-
-.layer3 {
-  animation: scroll 1s linear infinite;
-}
-
-/* Paused state */
-.layer3.paused {
-  animation-play-state: paused;
-}
-
-.layer4 {
-  animation: scroll 1s linear infinite;
-}
-
-/* Paused state */
-.layer4.paused {
-  animation-play-state: paused;
 }
 
 .scroller-item {
-  align-items: center;
-  gap: 1rem;
   display: inline-flex;
-  padding: 0 1rem;
+  padding: 1 1rem;
+  transition: all 0.3s ease;
+}
+
+.scroller-item.highlighted {
+  font-weight: 700;
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+/* Layer-specific highlight colors */
+.layer1 .scroller-item.highlighted {
+  color: #FFD93D; /* Yellow */
+}
+
+.layer2 .scroller-item.highlighted {
+  color: #6DD5FA; /* Blue */
+}
+
+.layer3 .scroller-item.highlighted {
+  color: #F093FB; /* Pink */
+}
+
+.layer4 .scroller-item.highlighted {
+  color: #4ADE80; /* Green */
 }
 
 /* The key: animate from 0 to -50% since we have 2 copies */
@@ -432,10 +418,6 @@ body:has(.popup.active) .resources-button:hover + .resources-popup:not(.active) 
   100% {
     transform: translateX(-50%);
   }
-}
-
-.layer4 {
-  border-bottom: 0.0625em solid var(--color-border-primary);
 }
 
 /* Footer Links */
