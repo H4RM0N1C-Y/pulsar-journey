@@ -36,19 +36,20 @@
 
 .popup {
   position: absolute;
-  background-color: #000;
+  background-color: rgba(10, 10, 10, 1);
   color: white;
   padding: 20px;
   min-width: 200px;
   z-index: 1000;
-  top: 100%;
+  top: 80%;
   left: 0;
   right: 0;
-  height: 5rem;
+  height: 10rem;
+  border-bottom: 0.0625em solid var(--color-border-primary);
   
   /* Initial hidden state */
   opacity: 0;
-  transform: translateY(-20px);
+  transform: translateY(-0rem);
   pointer-events: none;
   
   /* Transition properties */
