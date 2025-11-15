@@ -34,73 +34,95 @@
   margin-left: -0.25rem;
 }
 
+.nav-item-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
 .popup {
-  position: absolute;
-  background-color: rgba(10, 10, 10, 1);
-  color: white;
-  padding: 20px;
-  min-width: 200px;
-  z-index: 1000;
-  top: 80%;
+  position: fixed;
+  top: 3rem; /* Height of navbar */
   left: 0;
   right: 0;
-  height: 10rem;
+  width: 100%;
+  background-color: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 3rem 4rem;
+  z-index: 99;
   border-bottom: 0.0625em solid var(--color-border-primary);
+  
+  /* Flexbox for columns */
+  display: flex;
+  gap: 4rem;
+  justify-content: left;
+  align-items: flex-start;
   
   /* Initial hidden state */
   opacity: 0;
-  transform: translateY(-0rem);
   pointer-events: none;
   
   /* Transition properties */
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
-/* Show popup on hover - only when NOT locked and NOT this specific popup is locked */
-.community-button:hover + .community-popup:not(.locked-closed),
-.community-popup:hover:not(.locked-closed) {
+/* Show popup on hover - button or popup itself */
+.nav-item-wrapper:hover .popup:not(.locked-closed),
+.popup:hover:not(.locked-closed) {
   opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.explore-button:hover + .explore-popup:not(.locked-closed),
-.explore-popup:hover:not(.locked-closed) {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.resources-button:hover + .resources-popup:not(.locked-closed),
-.resources-popup:hover:not(.locked-closed) {
-  opacity: 1;
-  transform: translateY(0);
   pointer-events: auto;
 }
 
 /* Show popup when active (clicked) */
 .popup.active {
   opacity: 1;
-  transform: translateY(0);
   pointer-events: auto;
 }
 
-/* Disable hover when any popup is locked open */
-body:has(.popup.active) .community-button:hover + .community-popup:not(.active),
-body:has(.popup.active) .explore-button:hover + .explore-popup:not(.active),
-body:has(.popup.active) .resources-button:hover + .resources-popup:not(.active) {
-  opacity: 0;
-  transform: translateY(-20px);
-  pointer-events: none;
+/* Override for locked state */
+.popup.locked-closed {
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
-.community-popup {
+/* Disable hover when another popup is locked open */
+body:has(.popup.active) .nav-item-wrapper:hover .popup:not(.active),
+body:has(.popup.active) .popup:not(.active):hover {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Popup columns */
+.popup-column {
   display: flex;
-  column-gap: 4rem;
-  justify-content: left;
-  align-items: center;
-  font-weight: 500;
-  font-size: 1rem;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 14rem;
+}
+
+.popup-column h3 {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.popup-column a {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-quaternary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  margin: -0.25rem -0.75rem;
+}
+
+.popup-column a:hover {
+  color: var(--color-text-primary);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 /* Auth Buttons */
