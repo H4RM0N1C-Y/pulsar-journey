@@ -179,3 +179,43 @@
     font-size: var(--font-size-xl);
   }
 }
+
+/* Auth Page Responsive */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .auth-title {
+    font-size: 1.75rem;
+  }
+  
+  .auth-header {
+    padding: 0 1rem;
+  }
+}
+
+/* Auth Split Responsive */
+@media (max-width: 900px) {
+  .auth-container {
+    flex-direction: column;
+  }
+
+  .auth-divider-line {
+    width: 100%;
+    height: 0.0625rem;
+  }
+
+  .auth-left,
+  .auth-right {
+    padding: 2rem;
+  }
+
+  .auth-graphic {
+    height: 8rem;
+  }
+
+  .auth-title-large {
+    font-size: 2.25rem;
+  }
+}
