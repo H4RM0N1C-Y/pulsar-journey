@@ -399,3 +399,10 @@
   border: 0.0625rem solid var(--color-border-secondary);
   border-radius: var(--radius-md);
 }
+
+#sidebar {
+  width: 200px;
+  height: 100vh;
+  background-color: white;
+  z-index: 999;
+}
