@@ -181,123 +181,124 @@ const communityPopup = document.querySelector('.community-popup');
 const explorePopup = document.querySelector('.explore-popup');
 const resourcesPopup = document.querySelector('.resources-popup');
 
-// Track if any popup is locked open by click
-let lockedPopup = null;
+// Only run if elements exist
+if (communityBtn && exploreBtn && resourcesBtn && communityPopup && explorePopup && resourcesPopup) {
+  // Track if any popup is locked open by click
+  let lockedPopup = null;
 
-// Track if button has been hovered off after closing
-let communityHoveredOff = true;
-let exploreHoveredOff = true;
-let resourcesHoveredOff = true;
+  // Track if button has been hovered off after closing
+  let communityHoveredOff = true;
+  let exploreHoveredOff = true;
+  let resourcesHoveredOff = true;
 
-// Community button
-communityBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  if (lockedPopup === communityPopup) {
-    // Double click - close it
-    communityPopup.classList.remove('active');
-    communityPopup.classList.add('locked-closed');
-    lockedPopup = null;
-    communityHoveredOff = false; // Must hover off before hover works again
-  } else {
-    // Switch to this popup
-    explorePopup.classList.remove('active');
-    resourcesPopup.classList.remove('active');
-    communityPopup.classList.remove('locked-closed');
-    communityPopup.classList.add('active');
-    lockedPopup = communityPopup;
-    communityHoveredOff = true;
-  }
-});
-
-communityBtn.addEventListener('mouseenter', () => {
-  if (communityHoveredOff && !lockedPopup) {
-    communityPopup.classList.remove('locked-closed');
-  }
-});
-
-communityBtn.addEventListener('mouseleave', () => {
-  communityHoveredOff = true;
-  if (!lockedPopup) {
-    communityPopup.classList.remove('locked-closed');
-  }
-});
-
-// Explore button
-exploreBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  if (lockedPopup === explorePopup) {
-    explorePopup.classList.remove('active');
-    explorePopup.classList.add('locked-closed');
-    lockedPopup = null;
-    exploreHoveredOff = false;
-  } else {
-    communityPopup.classList.remove('active');
-    resourcesPopup.classList.remove('active');
-    explorePopup.classList.remove('locked-closed');
-    explorePopup.classList.add('active');
-    lockedPopup = explorePopup;
-    exploreHoveredOff = true;
-  }
-});
-
-exploreBtn.addEventListener('mouseenter', () => {
-  if (exploreHoveredOff && !lockedPopup) {
-    explorePopup.classList.remove('locked-closed');
-  }
-});
-
-exploreBtn.addEventListener('mouseleave', () => {
-  exploreHoveredOff = true;
-  if (!lockedPopup) {
-    explorePopup.classList.remove('locked-closed');
-  }
-});
-
-// Resources button
-resourcesBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  if (lockedPopup === resourcesPopup) {
-    resourcesPopup.classList.remove('active');
-    resourcesPopup.classList.add('locked-closed');
-    lockedPopup = null;
-    resourcesHoveredOff = false;
-  } else {
-    communityPopup.classList.remove('active');
-    explorePopup.classList.remove('active');
-    resourcesPopup.classList.remove('locked-closed');
-    resourcesPopup.classList.add('active');
-    lockedPopup = resourcesPopup;
-    resourcesHoveredOff = true;
-  }
-});
-
-resourcesBtn.addEventListener('mouseenter', () => {
-  if (resourcesHoveredOff && !lockedPopup) {
-    resourcesPopup.classList.remove('locked-closed');
-  }
-});
-
-resourcesBtn.addEventListener('mouseleave', () => {
-  resourcesHoveredOff = true;
-  if (!lockedPopup) {
-    resourcesPopup.classList.remove('locked-closed');
-  }
-});
-
-// Close popups when clicking outside
-document.addEventListener('click', () => {
-  communityPopup.classList.remove('active');
-  explorePopup.classList.remove('active');
-  resourcesPopup.classList.remove('active');
-  lockedPopup = null;
-});
-
-// Prevent popup clicks from closing
-[communityPopup, explorePopup, resourcesPopup].forEach(popup => {
-  popup.addEventListener('click', (e) => {
+  // Community button
+  communityBtn.addEventListener('click', (e) => {
     e.stopPropagation();
+    if (lockedPopup === communityPopup) {
+      communityPopup.classList.remove('active');
+      communityPopup.classList.add('locked-closed');
+      lockedPopup = null;
+      communityHoveredOff = false;
+    } else {
+      explorePopup.classList.remove('active');
+      resourcesPopup.classList.remove('active');
+      communityPopup.classList.remove('locked-closed');
+      communityPopup.classList.add('active');
+      lockedPopup = communityPopup;
+      communityHoveredOff = true;
+    }
   });
-});
+
+  communityBtn.addEventListener('mouseenter', () => {
+    if (communityHoveredOff && !lockedPopup) {
+      communityPopup.classList.remove('locked-closed');
+    }
+  });
+
+  communityBtn.addEventListener('mouseleave', () => {
+    communityHoveredOff = true;
+    if (!lockedPopup) {
+      communityPopup.classList.remove('locked-closed');
+    }
+  });
+
+  // Explore button
+  exploreBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (lockedPopup === explorePopup) {
+      explorePopup.classList.remove('active');
+      explorePopup.classList.add('locked-closed');
+      lockedPopup = null;
+      exploreHoveredOff = false;
+    } else {
+      communityPopup.classList.remove('active');
+      resourcesPopup.classList.remove('active');
+      explorePopup.classList.remove('locked-closed');
+      explorePopup.classList.add('active');
+      lockedPopup = explorePopup;
+      exploreHoveredOff = true;
+    }
+  });
+
+  exploreBtn.addEventListener('mouseenter', () => {
+    if (exploreHoveredOff && !lockedPopup) {
+      explorePopup.classList.remove('locked-closed');
+    }
+  });
+
+  exploreBtn.addEventListener('mouseleave', () => {
+    exploreHoveredOff = true;
+    if (!lockedPopup) {
+      explorePopup.classList.remove('locked-closed');
+    }
+  });
+
+  // Resources button
+  resourcesBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (lockedPopup === resourcesPopup) {
+      resourcesPopup.classList.remove('active');
+      resourcesPopup.classList.add('locked-closed');
+      lockedPopup = null;
+      resourcesHoveredOff = false;
+    } else {
+      communityPopup.classList.remove('active');
+      explorePopup.classList.remove('active');
+      resourcesPopup.classList.remove('locked-closed');
+      resourcesPopup.classList.add('active');
+      lockedPopup = resourcesPopup;
+      resourcesHoveredOff = true;
+    }
+  });
+
+  resourcesBtn.addEventListener('mouseenter', () => {
+    if (resourcesHoveredOff && !lockedPopup) {
+      resourcesPopup.classList.remove('locked-closed');
+    }
+  });
+
+  resourcesBtn.addEventListener('mouseleave', () => {
+    resourcesHoveredOff = true;
+    if (!lockedPopup) {
+      resourcesPopup.classList.remove('locked-closed');
+    }
+  });
+
+  // Close popups when clicking outside
+  document.addEventListener('click', () => {
+    communityPopup.classList.remove('active');
+    explorePopup.classList.remove('active');
+    resourcesPopup.classList.remove('active');
+    lockedPopup = null;
+  });
+
+  // Prevent popup clicks from closing
+  [communityPopup, explorePopup, resourcesPopup].forEach(popup => {
+    popup.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  });
+}
 
 // Pillars Scroll Logic
 const pillarsSection = document.querySelector('#pillars');
